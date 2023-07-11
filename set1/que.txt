@@ -1,0 +1,56 @@
+1. Create a Customers table / collection with the following fields: id (unique identifier), name, email, address, and phone_number.
+==> CREATE TABLE Customers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    address VARCHAR(255),
+    phone_number VARCHAR(50)
+);
+
+2. Insert five rows / documents into the Customers table / collection with data of your choice.
+==> INSERT INTO Customers (name, email, address, phone_number) VALUES
+('John Doe', 'johndoe@example.com', '123 Main Street, City, Country', '123-456-7890'),
+('Jane Smith', 'janesmith@example.com', '456 Elm Avenue, City, Country', '987-654-3210'),
+('Michael Johnson', 'michaeljohnson@example.com', '789 Oak Road, City, Country', '555-123-4567'),
+('Sarah Williams', 'sarahwilliams@example.com', '321 Pine Lane, City, Country', '888-999-0000'),
+('David Brown', 'davidbrown@example.com', '654 Maple Drive, City, Country', '444-555-6666');
+
+3.  Write a query to fetch all data from the Customers table / collection.
+==> SELECT * FROM Customers;
+
+4. Write a query to select only the name and email fields for all customers.
+==> SELECT name, email FROM Customers;
+
+5. Write a query to fetch the customer with the id of 3.
+==> SELECT * FROM Customers WHERE id = 3;
+
+6. Write a query to fetch all customers whose name starts with 'A'.
+==> SELECT * FROM Customers WHERE name LIKE 'A%';
+
+7. Write a query to fetch all customers, ordered by name in descending order.
+==> SELECT * FROM Customers ORDER BY name DESC;
+
+8. Write a query to update the address of the customer with id 4.
+==> UPDATE Customers SET address = 'New Address' WHERE id = 4;
+
+9. Write a query to fetch the top 3 customers when ordered by id in ascending order.
+==> SELECT * FROM Customers ORDER BY id ASC LIMIT 3;
+
+10. Write a query to delete the customer with id 2.
+==> DELETE FROM Customers WHERE id = 2;
+
+11. Write a query to count the number of customers.
+==> SELECT COUNT(*) AS customer_count FROM Customers;
+
+12. Write a query to fetch all customers except the first two when ordered by id in ascending order.
+==> SELECT * FROM Customers ORDER BY id ASC LIMIT 2,999999;
+
+13. Write a query to fetch all customers whose id is greater than 2 and name starts with 'B'.
+==> SELECT * FROM Customers WHERE id > 2 AND name LIKE 'B%';
+
+14. Write a query to fetch all customers whose id is less than 3 or name ends with 's'.
+==> SELECT * FROM Customers WHERE id < 3 OR name LIKE '%s';
+
+15. Write a query to fetch all customers where the phone_number field is not set or is null.
+==> SELECT * FROM Customers WHERE phone_number IS NULL OR phone_number = '';
+

@@ -1,0 +1,65 @@
+1. Create a Rides table / collection with the fields defined above.
+==> CREATE TABLE Rides (
+    id INT PRIMARY KEY,
+    driver_id INT,
+    passenger_id INT,
+    start_location VARCHAR(255),
+    end_location VARCHAR(255),
+    distance DECIMAL(5,2),
+    ride_time DECIMAL(5,2),
+    fare DECIMAL(6,2)
+);
+
+
+2. Insert five rows / documents into the Rides table / collection with data of your choice.
+==> INSERT INTO Rides (id, driver_id, passenger_id, start_location, end_location, distance, ride_time, fare)
+VALUES (1, 1001, 2001, 'New York City', 'Brooklyn', 10.5, 25.75, 35.50);
+
+INSERT INTO Rides (id, driver_id, passenger_id, start_location, end_location, distance, ride_time, fare)
+VALUES (2, 1002, 2002, 'San Francisco', 'Oakland', 7.2, 18.50, 28.75);
+
+INSERT INTO Rides (id, driver_id, passenger_id, start_location, end_location, distance, ride_time, fare)
+VALUES (3, 1003, 2003, 'London', 'Birmingham', 100.2, 120.25, 150.00);
+
+
+3. Write a query to fetch all rides, ordered by fare in descending order.
+==> SELECT *
+FROM Rides
+ORDER BY fare DESC;
+
+
+4. Write a query to calculate the total distance and total fare for all rides.
+==> SELECT SUM(distance) AS total_distance, SUM(fare) AS total_fare
+FROM Rides;
+
+
+5. Write a query to calculate the average ride_time of all rides.
+==> SELECT AVG(ride_time) AS average_ride_time
+FROM Rides;
+
+6. Write a query to fetch all rides whose start_location or end_location contains 'Downtown'
+==>SELECT *
+FROM Rides
+WHERE start_location LIKE '%Downtown%' OR end_location LIKE '%Downtown%';
+
+
+7. Write a query to count the number of rides for a given driver_id.
+==> SELECT COUNT(*) AS ride_count
+FROM Rides
+WHERE driver_id = <driver_id>;
+
+
+8. Write a query to update the fare of the ride with id 4.
+==> UPDATE Rides
+SET fare = <new_fare>
+WHERE id = 4;
+
+9.  Write a query to calculate the total fare for each driver_id.
+==> SELECT driver_id, SUM(fare) AS total_fare
+FROM Rides
+GROUP BY driver_id;
+
+10. Write a query to delete the ride with id 2.
+==> DELETE FROM Rides
+WHERE id = 2;
+

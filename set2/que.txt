@@ -1,0 +1,41 @@
+1. Create a Restaurants table / collection with the fields defined above.
+==> CREATE TABLE Restaurants (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    cuisine_type VARCHAR(100),
+    location VARCHAR(255),
+    average_rating DECIMAL(3,2),
+    delivery_available BOOLEAN
+);
+
+2. Insert five rows / documents into the Restaurants table / collection with data of your choice.
+==> INSERT INTO Restaurants (id, name, cuisine_type, location, average_rating, delivery_available) VALUES
+(1, 'Restaurant A', 'Italian', 'City A', 4.5, 1),
+(2, 'Restaurant B', 'Mexican', 'City B', 3.8, 0),
+(3, 'Restaurant C', 'Chinese', 'City C', 4.2, 1),
+(4, 'Restaurant D', 'Indian', 'City D', 4.7, 1),
+(5, 'Restaurant E', 'Japanese', 'City E', 4.0, 0);
+
+3. Write a query to fetch all restaurants, ordered by average_rating in descending order.
+==> SELECT * FROM Restaurants ORDER BY average_rating DESC;
+
+4. Write a query to fetch all restaurants that offer delivery_available and have an average_rating of more than 4.
+==> SELECT * FROM Restaurants WHERE delivery_available = 1 AND average_rating > 4;
+
+5. Write a query to fetch all restaurants where the cuisine_type field is not set or is null.
+==> SELECT * FROM Restaurants WHERE cuisine_type IS NULL OR cuisine_type = '';
+
+6. Write a query to count the number of restaurants that have delivery_available.
+==> SELECT COUNT(*) AS delivery_restaurant_count FROM Restaurants WHERE delivery_available = 1;
+
+7. - Write a query to fetch all restaurants whose **`location`** contains 'New York'.
+==> SELECT * FROM Restaurants WHERE location LIKE '%New York%';
+
+8. Write a query to calculate the average average_rating of all restauran
+==> SELECT AVG(average_rating) AS average_rating_avg FROM Restaurants;
+
+9. Write a query to fetch the top 5 restaurants when ordered by average_rating in descending order
+==> SELECT * FROM Restaurants ORDER BY average_rating DESC LIMIT 5;
+
+10. Write a query to delete the restaurant with id 3.
+==> DELETE FROM Restaurants WHERE id = 3;
